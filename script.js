@@ -3,22 +3,22 @@
 
 function add(a, b) {
   const sum = a + b;
-  console.log sum;
+  console.log(sum);
 }
 
 function subtract(a ,b) {
   const difference = a - b;
-  console.log difference;
+  console.log(difference);
 }
 
 function multiply(a, b) {
   const product = a * b;
-  console.log product;
+  console.log(product);
 }
 
 function divide(a, b) {
   const quotient = a / b;
-  console.log quotient;
+  console.log(quotient);
 }
 
 add(1 , 20);
