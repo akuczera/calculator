@@ -25,14 +25,14 @@ function divide(a, b) {
 //above functions
 
 //OPERATOR Function
-function operator(operator, num1, num2) {
-  if(operator === '+') {
+function operator(symbol, num1, num2) {
+  if(symbol === '+') {
     add(num1, num2);
-  } else if(operator === '-') {
+  } else if(symbol === '-') {
     subtract(num1, num2);
-  }else if(operator === '*') {
+  }else if(symbol === '*') {
     multiply(num1, num2);
-  }else if(operator === '/'){
+  }else if(symbol === '/'){
     divide(num1, num2);
   }
 }
