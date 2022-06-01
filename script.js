@@ -1,12 +1,18 @@
+let screenText = document.querySelector('div.display');
+console.log(screenText.textContent);
+
+let num1;
+let num2;
+
 //Function that displays the text of the buttons that we press in the
 //calculator.
   //Listen for when a button is pressed
   //Take that value and make sure it's a string (i think).
   //Push that text into the display <p>
- document.querySelectorAll('button.num').forEach(button => button.addEventListener('click', display));
+ document.querySelectorAll('button.num').forEach(button => button.addEventListener('click', () => display(button.textContent)));
 
- function display() {
-  console.log("button clicked");
+ function display(digit) {
+  screenText.textContent = digit; 
 }
 
 //BASIC Functions
