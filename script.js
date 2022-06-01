@@ -3,7 +3,7 @@
   //Listen for when a button is pressed
   //Take that value and make sure it's a string (i think).
   //Push that text into the display <p>
- document.querySelectorAll('button').forEach(button => button.addEventListener('click', display));
+ document.querySelectorAll('button.num').forEach(button => button.addEventListener('click', display));
 
  function display() {
   console.log("button clicked");
