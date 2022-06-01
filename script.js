@@ -1,3 +1,13 @@
+//Function that displays the text of the buttons that we press in the
+//calculator.
+  //Listen for when a button is pressed
+  //Take that value and make sure it's a string (i think).
+  //Push that text into the display <p>
+ document.querySelectorAll('button').forEach(button => button.addEventListener('click', display));
+
+ function display() {
+  console.log("button clicked");
+}
 
 //BASIC Functions
 function add(a, b) {
@@ -20,24 +30,15 @@ function divide(a, b) {
   console.log(quotient);
 }
 
-
-//2.0 Create a new function 'operate' that take an operator and 2 numbers and then calls on of the
-//above functions
-
 //OPERATOR Function
 function operator(symbol, num1, num2) {
   if(symbol === '+') {
     add(num1, num2);
   } else if(symbol === '-') {
     subtract(num1, num2);
-  }else if(symbol === '*') {
+  } else if(symbol === '*') {
     multiply(num1, num2);
-  }else if(symbol === '/'){
+  } else if(symbol === '/') {
     divide(num1, num2);
   }
 }
-
-operator('+', 1 , 20);
-operator('-', 10, 5);
-operator('*', 2, 4);
-operator('/', 6, 3);
