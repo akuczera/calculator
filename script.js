@@ -1,19 +1,27 @@
 let screenText = document.querySelector('div.display');
 console.log(screenText.textContent);
 
+let currentVal;
 let num1;
 let num2;
 
-//Function that displays the text of the buttons that we press in the
-//calculator.
-  //Listen for when a button is pressed
-  //Take that value and make sure it's a string (i think).
-  //Push that text into the display <p>
+//Listens for number to be clicked
  document.querySelectorAll('button.num').forEach(button => button.addEventListener('click', () => display(button.textContent)));
 
  function display(digit) {
   screenText.textContent = digit; 
+  currentVal = parseInt(digit);
 }
+
+//Listens for operator to be clicked and stores first value
+ document.querySelectorAll('button.ops').forEach(button => button.addEventListener('click', () => storeOps(button.textContent)));
+
+ function storeOps(type) {
+  num1 = currentVal;
+  screenText.textContent = type;
+}
+
+//Listens for equals to be clicked and stores second value, runs operation, displays result
 
 //BASIC Functions
 function add(a, b) {
