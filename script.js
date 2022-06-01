@@ -4,6 +4,7 @@ console.log(screenText.textContent);
 let currentVal;
 let num1;
 let num2;
+let ops;
 
 //Listens for number to be clicked
  document.querySelectorAll('button.num').forEach(button => button.addEventListener('click', () => display(button.textContent)));
@@ -14,14 +15,22 @@ let num2;
 }
 
 //Listens for operator to be clicked and stores first value
- document.querySelectorAll('button.ops').forEach(button => button.addEventListener('click', () => storeOps(button.textContent)));
+document.querySelectorAll('button.ops').forEach(button => button.addEventListener('click', () => storeOps(button.textContent)));
 
  function storeOps(type) {
   num1 = currentVal;
   screenText.textContent = type;
+  ops = type;
 }
 
 //Listens for equals to be clicked and stores second value, runs operation, displays result
+let equal = document.querySelector('button.equal')
+equal.addEventListener('click', calculate);
+
+ function calculate() {
+  num2 = currentVal;
+  operator(ops, num1, num2);
+}
 
 //BASIC Functions
 function add(a, b) {
@@ -47,12 +56,16 @@ function divide(a, b) {
 //OPERATOR Function
 function operator(symbol, num1, num2) {
   if(symbol === '+') {
-    add(num1, num2);
+    let add = add(num1, num2);
+    screenText.textContent = add;
   } else if(symbol === '-') {
-    subtract(num1, num2);
+    let sub = subtract(num1, num2);
+    screenText.textContent = sub;
   } else if(symbol === '*') {
-    multiply(num1, num2);
+    let mult = multiply(num1, num2);
+    screenText.textContent = mult;
   } else if(symbol === '/') {
-    divide(num1, num2);
+    let div = divide(num1, num2);
+    screenText.textContent = div;
   }
 }
