@@ -2,7 +2,6 @@ let screenText = document.querySelector('div.display');
 let currentVal = '';
 let storedVal;
 let ops;
-let flag = false;
 let result;
 
 //Listens for number to be clicked
@@ -12,7 +11,8 @@ let result;
   if(ops === '=') {
     storedVal = 0;
   }
-   //Below does not really work, because making op = '' doesn't work when I then click + and another number. The + does not get stored. Need different flag.
+
+//Creates string of "digits" if currentVal isn't blank.  
   if(currentVal === ''){
   currentVal = digit;
   screenText.textContent = currentVal;
@@ -20,10 +20,6 @@ let result;
     currentVal = currentVal + digit;
     screenText.textContent = currentVal;
   }
-       console.log(currentVal);
-  // screenText.textContent = digit; 
-  // currentVal = currentVal + digit;
-  // console.log("current value=" + currentVal);
 }
 
 //Listens for operator to be clicked and stores first value
@@ -31,14 +27,11 @@ document.querySelectorAll('button.ops').forEach(button => button.addEventListene
 
  function storeOps(type) {
   if(!storedVal){
-   storedVal = parseInt(currentVal);
-    console.log(storedVal);
-    currentVal = ''; //Added this in as the "flag".
-    console.log(currentVal);
+    storedVal = parseInt(currentVal);
+    currentVal = '';
   }
   screenText.textContent = type;
   ops = type;
-  flag = !flag;
 }
 
 //Listens for equals to be clicked and stores second value, runs operation, displays result
@@ -48,7 +41,7 @@ document.querySelector('button.equal').addEventListener('click', operator);
 document.querySelector('button.clear').addEventListener('click', clear);
 
 function clear() {
-currentVal = 0;
+currentVal = '';
 storedVal = 0;
 ops = '';
 screenText.textContent = '';
@@ -57,26 +50,18 @@ screenText.textContent = '';
 //BASIC Functions
 function add(a, b) {
   storedVal = parseFloat((a + b).toFixed(8));
-  screenText.textContent = storedVal;
-  currentVal = '';
 }
 
 function subtract(a ,b) {
   storedVal = parseFloat((a - b).toFixed(8));
-  screenText.textContent = storedVal;
-  currentVal = '';
 }
 
 function multiply(a, b) {
   storedVal = parseFloat((a * b).toFixed(8));
-  screenText.textContent = storedVal;
-  currentVal = '';
 }
 
 function divide(a, b) {
   storedVal = parseFloat((a / b).toFixed(8));
-  screenText.textContent = storedVal;
-  currentVal = '';
 }
 
 //OPERATOR Function
@@ -90,8 +75,9 @@ function operator() {
   } else if(ops === '/') {
     result = divide(storedVal, parseInt(currentVal));
   }
-  
   ops = '=';
+  screenText.textContent = storedVal;
+  currentVal = '';
 }
 
 //NEXT STEPS
