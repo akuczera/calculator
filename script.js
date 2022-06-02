@@ -50,12 +50,13 @@ document.querySelectorAll('button.ops').forEach(button => button.addEventListene
  }
 
 //EQUALS: Listens for equals to be clicked and stores second value, runs operation, displays result
-document.querySelector('button.equal').addEventListener('click', operator);
 document.querySelector('button.equal').addEventListener('click', equals);
 
 function equals() {
- // currentVal = '';
-  ops = '=';
+  if(currentVal === 0 || currentVal > 0) {
+    operator();
+    ops = '=';
+  }
   console.log("Clicked equals:");
   console.log("currentVal =" + currentVal);
   console.log("Ops =" + ops);
