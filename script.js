@@ -15,6 +15,7 @@ let result;
   }
   screenText.textContent = digit; 
   currentVal = parseInt(digit);
+  parseFloat(currentVal).toFixed(8);
   console.log("current value=" + currentVal);
 }
 
@@ -44,25 +45,25 @@ screenText.textContent = '';
 
 //BASIC Functions
 function add(a, b) {
-  storedVal = a + b;
+  storedVal = parseFloat((a + b).toFixed(8));
   screenText.textContent = storedVal;
   console.log("storedVal=" + storedVal);
 }
 
 function subtract(a ,b) {
-  storedVal = a - b;
+  storedVal = parseFloat((a - b).toFixed(8));
   screenText.textContent = storedVal;
   console.log("storedVal=" + storedVal);
 }
 
 function multiply(a, b) {
-  storedVal = a * b;
+  storedVal = parseFloat((a * b).toFixed(8));
   screenText.textContent = storedVal;
   console.log("storedVal=" + storedVal);
 }
 
 function divide(a, b) {
-  storedVal = a / b;
+  storedVal = parseFloat((a / b).toFixed(8));
   screenText.textContent = storedVal;
   console.log("storedVal=" + storedVal);
 }
