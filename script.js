@@ -31,7 +31,7 @@ document.querySelectorAll('button.num').forEach(button => button.addEventListene
 document.querySelectorAll('button.ops').forEach(button => button.addEventListener('click', () => storeOps(button.textContent)));
 
  function storeOps(type) {
- if(storedVal === 0){
+ if(storedVal === 0 && currentVal > 0){
     storedVal = parseInt(currentVal);
     currentVal = '';
   }
@@ -54,10 +54,9 @@ document.querySelector('button.equal').addEventListener('click', operator);
 document.querySelector('button.equal').addEventListener('click', equals);
 
 function equals() {
-  currentVal = '';
-  storedVal = 0;
-  ops = '';
-    console.log("Clicked equals:");
+ // currentVal = '';
+  ops = '=';
+  console.log("Clicked equals:");
   console.log("currentVal =" + currentVal);
   console.log("Ops =" + ops);
   console.log("storedVal =" + storedVal);
