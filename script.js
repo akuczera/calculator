@@ -1,5 +1,5 @@
 let screenText = document.querySelector('div.display');
-let currentVal;
+let currentVal = '';
 let storedVal;
 let ops;
 let flag = false;
@@ -12,20 +12,17 @@ let result;
   if(ops === '=') {
     storedVal = 0;
   }
-
    //Below does not really work, because making op = '' doesn't work when I then click + and another number. The + does not get stored. Need different flag.
-  if(!flag){
+  if(currentVal === ''){
   currentVal = digit;
   screenText.textContent = currentVal;
-  flag = !flag;
-    console.log(flag);
-  } else if(flag) {
+  } else {
     currentVal = currentVal + digit;
-    console.log(flag);
     screenText.textContent = currentVal;
   }
+       console.log(currentVal);
   // screenText.textContent = digit; 
-  // currentVal = parseInt(digit);
+  // currentVal = currentVal + digit;
   // console.log("current value=" + currentVal);
 }
 
@@ -35,6 +32,9 @@ document.querySelectorAll('button.ops').forEach(button => button.addEventListene
  function storeOps(type) {
   if(!storedVal){
    storedVal = parseInt(currentVal);
+    console.log(storedVal);
+    currentVal = ''; //Added this in as the "flag".
+    console.log(currentVal);
   }
   screenText.textContent = type;
   ops = type;
@@ -58,21 +58,25 @@ screenText.textContent = '';
 function add(a, b) {
   storedVal = parseFloat((a + b).toFixed(8));
   screenText.textContent = storedVal;
+  currentVal = '';
 }
 
 function subtract(a ,b) {
   storedVal = parseFloat((a - b).toFixed(8));
   screenText.textContent = storedVal;
+  currentVal = '';
 }
 
 function multiply(a, b) {
   storedVal = parseFloat((a * b).toFixed(8));
   screenText.textContent = storedVal;
+  currentVal = '';
 }
 
 function divide(a, b) {
   storedVal = parseFloat((a / b).toFixed(8));
   screenText.textContent = storedVal;
+  currentVal = '';
 }
 
 //OPERATOR Function
