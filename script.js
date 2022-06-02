@@ -1,11 +1,12 @@
 let screenText = document.querySelector('div.display');
 let currentVal = '';
-let storedVal;
-let ops;
+let storedVal = 0;
+let displayVal = '';
+let ops = '';
 let result;
 
-//Listens for number to be clicked
- document.querySelectorAll('button.num').forEach(button => button.addEventListener('click', () => display(button.textContent)));
+//NUMBERS: Listens for number to be clicked
+document.querySelectorAll('button.num').forEach(button => button.addEventListener('click', () => display(button.textContent)));
 
  function display(digit) {
   if(ops === '=') {
@@ -20,31 +21,60 @@ let result;
     currentVal = currentVal + digit;
     screenText.textContent = currentVal;
   }
+  console.log("Clicked number:");
+  console.log("currentVal =" + currentVal);
+  console.log("Ops =" + ops);
+  console.log("storedVal =" + storedVal);
 }
 
-//Listens for operator to be clicked and stores first value
+//OPERATORS: Listens for operator to be clicked and stores first value
 document.querySelectorAll('button.ops').forEach(button => button.addEventListener('click', () => storeOps(button.textContent)));
 
  function storeOps(type) {
-  if(!storedVal){
+ if(storedVal === 0){
     storedVal = parseInt(currentVal);
     currentVal = '';
   }
+
+  if(ops != ''){
+    operator();
+    ops = type;
+  } else {
   screenText.textContent = type;
   ops = type;
+  }
+  console.log("Clicked operator");
+  console.log("currentVal =" + currentVal);
+  console.log("Ops =" + ops);
+  console.log("storedVal =" + storedVal);
+ }
+
+//EQUALS: Listens for equals to be clicked and stores second value, runs operation, displays result
+document.querySelector('button.equal').addEventListener('click', operator);
+document.querySelector('button.equal').addEventListener('click', equals);
+
+function equals() {
+  currentVal = '';
+  storedVal = 0;
+  ops = '';
+    console.log("Clicked equals:");
+  console.log("currentVal =" + currentVal);
+  console.log("Ops =" + ops);
+  console.log("storedVal =" + storedVal);
 }
 
-//Listens for equals to be clicked and stores second value, runs operation, displays result
-document.querySelector('button.equal').addEventListener('click', operator);
-
-//Listens for clear button to reset values.
+//CLEAR: Listens for clear button to reset values.
 document.querySelector('button.clear').addEventListener('click', clear);
 
 function clear() {
 currentVal = '';
 storedVal = 0;
 ops = '';
-screenText.textContent = '';
+screenText.textContent = '0';
+  console.log("Cleared");
+  console.log("currentVal =" + currentVal);
+  console.log("Ops =" + ops);
+  console.log("storedVal =" + storedVal);
 }
 
 //BASIC Functions
@@ -75,9 +105,12 @@ function operator() {
   } else if(ops === '/') {
     result = divide(storedVal, parseInt(currentVal));
   }
-  ops = '=';
   screenText.textContent = storedVal;
   currentVal = '';
+  console.log("Ran operation");
+  console.log("currentVal =" + currentVal);
+  console.log("Ops =" + ops);
+  console.log("storedVal =" + storedVal);
 }
 
 //NEXT STEPS
