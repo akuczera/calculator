@@ -2,8 +2,7 @@ let screenText = document.querySelector('div.display');
 console.log(screenText.textContent);
 
 let currentVal;
-let num1;
-let num2;
+let storedVal;
 let ops;
 let result;
 
@@ -13,59 +12,65 @@ let result;
  function display(digit) {
   screenText.textContent = digit; 
   currentVal = parseInt(digit);
+  console.log("current value=" + currentVal);
 }
 
 //Listens for operator to be clicked and stores first value
 document.querySelectorAll('button.ops').forEach(button => button.addEventListener('click', () => storeOps(button.textContent)));
 
  function storeOps(type) {
-  num1 = currentVal;
+  if(!storedVal){
+   storedVal = currentVal;
+  }
+  console.log("storedVal=" + storedVal);
   screenText.textContent = type;
   ops = type;
-  console.log(ops);
-  console.log(typeof(ops));
 }
 
 //Listens for equals to be clicked and stores second value, runs operation, displays result
 let equal = document.querySelector('button.equal');
-equal.addEventListener('click', calculate);
-
- function calculate() {
-  num2 = currentVal;
-  console.log(num2);
-  operator(ops, num1, num2);
-}
+//equal.addEventListener('click', calculate);
+equal.addEventListener('click', operator);
+//  function calculate() {
+//   num2 = currentVal;
+//   console.log(num2);
+//   operator(ops, storedVal, num2);
+// }
 
 //BASIC Functions
 function add(a, b) {
-  const sum = a + b;
-  screenText.textContent = sum;
+  storedVal = a + b;
+  screenText.textContent = storedVal;
+  console.log("storedVal=" + storedVal);
 }
 
 function subtract(a ,b) {
-  const difference = a - b;
-  screenText.textContent = difference;
+  storedVal = a - b;
+  screenText.textContent = storedVal;
+  console.log("storedVal=" + storedVal);
 }
 
 function multiply(a, b) {
-  const product = a * b;
-  screenText.textContent = product;
+  storedVal = a * b;
+  screenText.textContent = storedVal;
+  console.log("storedVal=" + storedVal);
 }
 
 function divide(a, b) {
-  const quotient = a / b;
-  screenText.textContent = quotient;
+  storedVal = a / b;
+  screenText.textContent = storedVal;
+  console.log("storedVal=" + storedVal);
 }
 
 //OPERATOR Function
-function operator(symbol, num1, num2) {
-  if(symbol === '+') {
-    result = add(num1, num2);
-  } else if(symbol === '-') {
-    result = subtract(num1, num2);
-  } else if(symbol === 'x') {
-    result = multiply(num1, num2);
-  } else if(symbol === '/') {
-    result = divide(num1, num2);
+function operator() {
+  if(ops === '+') {
+    result = add(storedVal, currentVal);
+  } else if(ops === '-') {
+    result = subtract(storedVal, currentVal);
+  } else if(ops === 'x') {
+    result = multiply(storedVal, currentVal);
+  } else if(ops === '/') {
+    result = divide(storedVal, currentVal);
   }
 }
