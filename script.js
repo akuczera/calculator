@@ -10,6 +10,9 @@ let result;
  document.querySelectorAll('button.num').forEach(button => button.addEventListener('click', () => display(button.textContent)));
 
  function display(digit) {
+  if(ops === '=') {
+    storedVal = 0;
+  }
   screenText.textContent = digit; 
   currentVal = parseInt(digit);
   console.log("current value=" + currentVal);
@@ -75,4 +78,6 @@ function operator() {
   } else if(ops === '/') {
     result = divide(storedVal, currentVal);
   }
+  
+  ops = '=';
 }
