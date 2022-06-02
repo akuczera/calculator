@@ -32,7 +32,7 @@ document.querySelectorAll('button.ops').forEach(button => button.addEventListene
 
  function storeOps(type) {
  if(storedVal === 0 && currentVal > 0){
-    storedVal = parseInt(currentVal);
+    storedVal = parseFloat(currentVal);
     currentVal = '';
   }
 
@@ -97,13 +97,13 @@ function divide(a, b) {
 //OPERATOR Function
 function operator() {
   if(ops === '+') {
-    result = add(storedVal, parseInt(currentVal));
+    result = add(storedVal, parseFloat(currentVal));
   } else if(ops === '-') {
-    result = subtract(storedVal, parseInt(currentVal));
+    result = subtract(storedVal, parseFloat(currentVal));
   } else if(ops === 'x') {
-    result = multiply(storedVal, parseInt(currentVal));
+    result = multiply(storedVal, parseFloat(currentVal));
   } else if(ops === '/') {
-    result = divide(storedVal, parseInt(currentVal));
+    result = divide(storedVal, parseFloat(currentVal));
   }
   screenText.textContent = storedVal;
   currentVal = '';
