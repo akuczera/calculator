@@ -28,14 +28,16 @@ document.querySelectorAll('button.ops').forEach(button => button.addEventListene
 }
 
 //Listens for equals to be clicked and stores second value, runs operation, displays result
-let equal = document.querySelector('button.equal');
-//equal.addEventListener('click', calculate);
-equal.addEventListener('click', operator);
-//  function calculate() {
-//   num2 = currentVal;
-//   console.log(num2);
-//   operator(ops, storedVal, num2);
-// }
+document.querySelector('button.equal').addEventListener('click', operator);
+
+//Listens for clear button to reset values.
+document.querySelector('button.clear').addEventListener('click', clear);
+
+function clear() {
+currentVal = 0;
+storedVal = 0;
+screenText.textContent = '';
+}
 
 //BASIC Functions
 function add(a, b) {
