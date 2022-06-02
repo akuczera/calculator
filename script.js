@@ -5,6 +5,7 @@ let currentVal;
 let num1;
 let num2;
 let ops;
+let result;
 
 //Listens for number to be clicked
  document.querySelectorAll('button.num').forEach(button => button.addEventListener('click', () => display(button.textContent)));
@@ -21,51 +22,50 @@ document.querySelectorAll('button.ops').forEach(button => button.addEventListene
   num1 = currentVal;
   screenText.textContent = type;
   ops = type;
+  console.log(ops);
+  console.log(typeof(ops));
 }
 
 //Listens for equals to be clicked and stores second value, runs operation, displays result
-let equal = document.querySelector('button.equal')
+let equal = document.querySelector('button.equal');
 equal.addEventListener('click', calculate);
 
  function calculate() {
   num2 = currentVal;
+  console.log(num2);
   operator(ops, num1, num2);
 }
 
 //BASIC Functions
 function add(a, b) {
   const sum = a + b;
-  console.log(sum);
+  screenText.textContent = sum;
 }
 
 function subtract(a ,b) {
   const difference = a - b;
-  console.log(difference);
+  screenText.textContent = difference;
 }
 
 function multiply(a, b) {
   const product = a * b;
-  console.log(product);
+  screenText.textContent = product;
 }
 
 function divide(a, b) {
   const quotient = a / b;
-  console.log(quotient);
+  screenText.textContent = quotient;
 }
 
 //OPERATOR Function
 function operator(symbol, num1, num2) {
   if(symbol === '+') {
-    let add = add(num1, num2);
-    screenText.textContent = add;
+    result = add(num1, num2);
   } else if(symbol === '-') {
-    let sub = subtract(num1, num2);
-    screenText.textContent = sub;
-  } else if(symbol === '*') {
-    let mult = multiply(num1, num2);
-    screenText.textContent = mult;
+    result = subtract(num1, num2);
+  } else if(symbol === 'x') {
+    result = multiply(num1, num2);
   } else if(symbol === '/') {
-    let div = divide(num1, num2);
-    screenText.textContent = div;
+    result = divide(num1, num2);
   }
 }
