@@ -17,9 +17,9 @@ document.querySelectorAll('button.num').forEach(button => button.addEventListene
   if(digit === '0' && ops === '/') {
     screenText.textContent = "Nice try...";
     storedVal = NaN;
-  } else if(currentVal === ''){
-  currentVal = digit;
-  screenText.textContent = currentVal;
+//  } else if(digit === '0' && currentVal === ''){
+  // currentVal = digit;
+  // screenText.textContent = currentVal;
   } else {
     currentVal = currentVal + digit;
     screenText.textContent = currentVal;
@@ -117,6 +117,8 @@ function operator() {
 }
 
 //NEXT STEPS
-//Click num x num + num - num =, along the way it operates and equals "stops" it in a way before moving onto the next number.
-//Allow for a "string of numbers", like the number = 1832
-//Clear button makes currentValue a 0, so any more numbers clicked and it addes to the zero lol
+//If someone clicks 0 first, don't add it to current value.
+//Add a way to make a number negative.
+//Disable the decimal button so that once it's clicked it cannot be used until the "next function"
+//Make the calculator pretty.
+//Add keyboard support?
