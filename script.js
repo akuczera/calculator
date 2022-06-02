@@ -14,7 +14,10 @@ document.querySelectorAll('button.num').forEach(button => button.addEventListene
   }
 
 //Creates string of "digits" if currentVal isn't blank.  
-  if(currentVal === ''){
+  if(digit === '0' && ops === '/') {
+    screenText.textContent = "Nice try...";
+    storedVal = NaN;
+  } else if(currentVal === ''){
   currentVal = digit;
   screenText.textContent = currentVal;
   } else {
