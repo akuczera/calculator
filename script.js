@@ -53,7 +53,7 @@ document.querySelectorAll('button.ops').forEach(button => button.addEventListene
 document.querySelector('button.equal').addEventListener('click', equals);
 
 function equals() {
-  if(currentVal === 0 || currentVal > 0) {
+  if(currentVal > 0 && ops !== '') {
     operator();
     ops = '=';
   }
