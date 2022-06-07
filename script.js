@@ -17,10 +17,8 @@ document.querySelectorAll('button.num').forEach(button => button.addEventListene
   if(digit === '0' && ops === '/') {
     screenText.textContent = "Nice try...";
     storedVal = NaN;
-//  } else if(digit === '0' && currentVal === ''){
-  // currentVal = digit;
-  // screenText.textContent = currentVal;
-  } else {
+ } else if(digit === '0' && currentVal === ''){
+ } else {
     currentVal = currentVal + digit;
     screenText.textContent = currentVal;
   }
@@ -117,7 +115,6 @@ function operator() {
 }
 
 //NEXT STEPS
-//If someone clicks 0 first, don't add it to current value.
 //Add a way to make a number negative.
 //Disable the decimal button so that once it's clicked it cannot be used until the "next function"
 //Make the calculator pretty.
