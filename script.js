@@ -35,6 +35,9 @@ document.querySelectorAll('button.ops').forEach(button => button.addEventListene
  if(storedVal === 0 && currentVal > 0){
     storedVal = parseFloat(currentVal);
     currentVal = '';
+  } else if(storedVal === 0 && currentVal < 0) {
+    storedVal = parseFloat(currentVal);
+    currentVal = '';
   }
 
   if(ops != ''){
@@ -54,7 +57,7 @@ document.querySelectorAll('button.ops').forEach(button => button.addEventListene
 document.querySelector('button.equal').addEventListener('click', equals);
 
 function equals() {
-  if(currentVal > 0 && ops !== '') {
+  if(ops !== '') {
     operator();
     ops = '=';
   }
@@ -76,6 +79,18 @@ screenText.textContent = '0';
   console.log("currentVal =" + currentVal);
   console.log("Ops =" + ops);
   console.log("storedVal =" + storedVal);
+}
+
+//POSITIVE & NEGATIVE, changes current value to either positive or negative.
+document.querySelector('button.reverse').addEventListener('click', reverse);
+
+function reverse() {
+  if(currentVal == '') {
+    currentVal = '-';
+  } else {
+    currentVal = currentVal * -1;
+  screenText.textContent = currentVal;
+}
 }
 
 //BASIC Functions
