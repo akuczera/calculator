@@ -106,6 +106,15 @@ function addDecimal() {
   }
 }
 
+//DELETE removes last digit currentVal.
+document.querySelector('button.remove').addEventListener('click', remove);
+
+function remove() {
+  let newString = currentVal.slice(0, -1);
+  currentVal = newString;
+  screenText.textContent = currentVal;
+}
+
 //BASIC Functions
 function add(a, b) {
   storedVal = parseFloat((a + b).toFixed(8));
@@ -143,6 +152,5 @@ function operator() {
 }
 
 //NEXT STEPS
-//Disable the decimal button so that once it's clicked it cannot be used until the "next function"
 //Make the calculator pretty.
 //Add keyboard support?
