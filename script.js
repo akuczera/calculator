@@ -17,8 +17,7 @@ document.querySelectorAll('button.num').forEach(button => button.addEventListene
   if(digit === '0' && ops === '/') {
     screenText.textContent = "Nice try...";
     storedVal = NaN;
- } else if(digit === '0' && currentVal === ''){
- } else {
+  } else if(currentVal != '0') {
     currentVal = currentVal + digit;
     screenText.textContent = currentVal;
   }
@@ -130,7 +129,7 @@ function operator() {
 }
 
 //NEXT STEPS
-//Add a way to make a number negative.
+//Cannot click zero anymore on it's own! Maybe change code so that if....then you run a function that makes it 0, else don't add zero? I don't know, think if you can use functions somehow.
 //Disable the decimal button so that once it's clicked it cannot be used until the "next function"
 //Make the calculator pretty.
 //Add keyboard support?
