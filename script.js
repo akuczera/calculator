@@ -92,6 +92,20 @@ function reverse() {
 }
 }
 
+//DECIMAL adds decimal if currentVal is whole number.
+document.querySelector('button.decimal').addEventListener('click', addDecimal);
+
+function addDecimal() {
+  console.log("add decimal");
+  if(Number.isInteger(parseFloat(currentVal)) === true) {
+    currentVal = currentVal + '.';
+    screenText.textContent = currentVal;
+  } else if(currentVal === '') {
+    currentVal = currentVal + '0.';
+    screenText.textContent = currentVal;
+  }
+}
+
 //BASIC Functions
 function add(a, b) {
   storedVal = parseFloat((a + b).toFixed(8));
@@ -129,7 +143,6 @@ function operator() {
 }
 
 //NEXT STEPS
-//Cannot click zero anymore on it's own! Maybe change code so that if....then you run a function that makes it 0, else don't add zero? I don't know, think if you can use functions somehow.
 //Disable the decimal button so that once it's clicked it cannot be used until the "next function"
 //Make the calculator pretty.
 //Add keyboard support?
