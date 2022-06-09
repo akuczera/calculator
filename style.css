@@ -1,3 +1,7 @@
+body {
+  background: #eeeeee; 
+}
+
 .container {
   display: grid;
   width: 415px;
@@ -6,12 +10,14 @@
   grid-gap: 5px;
   padding: 5px;
   border: 1px solid red;
+  background: white;
+  font-size: 20px;
 }
 
 .display {
   grid-column: 1/5;
   border: 1px solid red;
-  background: #eeeeee;
+  background: #b7b7b7;
 }
 
 .zero {
@@ -20,6 +26,8 @@
 
 button {
   background: #71a0a5; 
+  color: black;
+  font-size: 20px;
 }
 
 .num {
