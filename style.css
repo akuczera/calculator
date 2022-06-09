@@ -11,13 +11,23 @@ body {
   padding: 5px;
   border: 1px solid red;
   background: white;
-  font-size: 20px;
+}
+
+.content {
+  font-size: 60px;
+  margin: 0;
+  padding-right: 20px;
+  border: 1px solid black;
 }
 
 .display {
   grid-column: 1/5;
   border: 1px solid red;
   background: #b7b7b7;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-end;
 }
 
 .zero {

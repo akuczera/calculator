@@ -1,4 +1,4 @@
-let screenText = document.querySelector('div.display');
+let screenText = document.querySelector('p.content');
 let currentVal = '';
 let storedVal = 0;
 let displayVal = '';
