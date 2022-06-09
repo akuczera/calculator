@@ -10,10 +10,24 @@
 
 .display {
   grid-column: 1/5;
+  border: 1px solid red;
+  background: #eeeeee;
 }
 
 .zero {
   grid-column: 1/3;
+}
+
+button {
+  background: #71a0a5; 
+}
+
+.num {
+  background: #acc6aa;
+}
+
+.ops {
+  background: #77628c;
 }
 
 
