@@ -30,8 +30,8 @@ body {
   align-items: flex-end;
 }
 
-.zero {
-  grid-column: 1/3;
+.equal {
+  grid-column: 3/5;
 }
 
 button {
